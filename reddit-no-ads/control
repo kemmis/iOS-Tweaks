@@ -1,0 +1,9 @@
+Package: com.yadkin.redditnoads
+Name: Reddit No Ads
+Depends: mobilesubstrate
+Version: 0.0.2
+Architecture: iphoneos-arm
+Description: Removes "PROMOTED" posts from from the official Reddit app.
+Maintainer: kemmis <rafe@kemmis.info>
+Author: kemmis <rafe@kemmis.info>
+Section: Tweaks
