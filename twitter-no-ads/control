@@ -1,0 +1,9 @@
+Package: com.yadkin.twitternoads
+Name: Twitter No Ads
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Removes "PROMOTED" posts from from the official Twitter app.
+Maintainer: kemmis <rafe@kemmis.info>
+Author: kemmis <rafe@kemmis.info>
+Section: Tweaks
