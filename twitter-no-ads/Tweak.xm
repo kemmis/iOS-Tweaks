@@ -15,6 +15,7 @@
 @end
 
 @interface TFNItemsDataViewController : TFNDataViewController
+ - (id)itemAtIndexPath:(id)arg1;
 @end
 
 @interface TFNItemsDataViewSectionController : NSObject
@@ -36,17 +37,26 @@
 	}
 	return tvCell;	
 }
-%end
 
-
-%hook TFNItemsDataViewSectionController
-- (double)tableViewHeightForItem:(id)v1 atIndexPath:(id)v2 { 
-	id item = [[[self dataViewController] itemsInternalDataViewItemAtValidIndexPath: v2] item];
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2
+{
+	id item = [self itemAtIndexPath: arg2];
 	if([item respondsToSelector: @selector(isPromoted)] && [item performSelector:@selector(isPromoted)]){
-		//%log;
-		//NSLog(@"tableViewHeightForItem: %@", item);
 		return 0;
 	}
 	return %orig;
 }
 %end
+
+
+//%hook TFNItemsDataViewSectionController
+//- (double)tableViewHeightForItem:(id)v1 atIndexPath:(id)v2 { 
+//	id item = [[[self dataViewController] itemsInternalDataViewItemAtValidIndexPath: v2] item];
+//	if([item respondsToSelector: @selector(isPromoted)] && [item performSelector:@selector(isPromoted)]){
+//		//%log;
+//		//NSLog(@"tableViewHeightForItem: %@", item);
+//		return 0;
+//	}
+//	return %orig;
+//}
+//%end
